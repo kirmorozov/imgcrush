@@ -45,6 +45,13 @@ docker run --rm -v="$(pwd):/imgcrush" -e "TERM_WIDTH=$(tput cols)" imgcrush -c 4
 # alias imgcrush='docker run --rm -v="$(pwd):/imgcrush" -e "TERM_WIDTH=$(tput cols)" imgcrush'
 ```
 
+Usage docker-based version recursive in-place replacements:
+```
+cd ./magento/media
+wget https://raw.githubusercontent.com/kirmorozov/imgcrush/master/recomress_all.sh
+sh recomress_all.sh > recomression.log
+```
+
 References:
 
 * [Comparison of JPEG Lossless Compression Tools](
