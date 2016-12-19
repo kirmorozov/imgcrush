@@ -52,6 +52,23 @@ wget https://raw.githubusercontent.com/kirmorozov/imgcrush/master/recomress_all.
 sh recomress_all.sh > recomression.log
 ```
 
+Usage gainst Magento media directory:
+```
+cd ./magento
+mkdir -p ./optimizied/media
+mkdir -p ./optimizied/skin
+docker run --rm --user=33:33 -v="$(pwd):/imgcrush" komplizierte/imgcrush -c 4 -o ./optimized/media ./media > media85.log
+docker run --rm --user=33:33 -v="$(pwd):/imgcrush" komplizierte/imgcrush -c 4 -o ./optimized/skin ./skin > skin85.log
+```
+Magento 1 media directory setup:
+```
+    location ~* \.(jpe?g|gif|css|png|js|ico|pdf|zip|tar|t?gz|mp3|wav|swf)$ {
+	      try_files /optimized/$uri $uri $uri/;
+        expires max;
+    }
+```
+
+
 References:
 
 * [Comparison of JPEG Lossless Compression Tools](
