@@ -64,7 +64,7 @@ func (image Image) command() *exec.Cmd {
 	case TYPE_PNG:
 		cmd = exec.Command("pngcrush", "-q", image.BeforePath, image.AfterPath)
 	default:
-		cmd = exec.Command("mozjpeg", "-copy", "none", "-outfile",
+		cmd = exec.Command("mozjpeg", "-quality", "85", "-copy", "none", "-outfile",
 			image.AfterPath, image.BeforePath)
 	}
 	return cmd
