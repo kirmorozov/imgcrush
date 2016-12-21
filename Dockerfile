@@ -11,7 +11,7 @@ RUN test "$(cat /tmp/country)" = "CN" && { \
     > /etc/apt/sources.list; \
     } || true
 
-RUN apt-get update && apt-get install -y pngcrush gifsicle nasm
+RUN apt-get update && apt-get install -y pngcrush pngquant gifsicle nasm inotify-tools
 
 RUN curl -Ls https://github.com/mozilla/mozjpeg/releases/download/v3.0/mozjpeg-3.0-release-source.tar.gz \
     | tar xfvz - -C /opt
