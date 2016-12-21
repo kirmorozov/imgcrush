@@ -62,7 +62,7 @@ func (image Image) command() *exec.Cmd {
 			"--same-delay", "--same-loopcount",
 			"--output", image.AfterPath, image.BeforePath)
 	case TYPE_PNG:
-		cmd = exec.Command("pngcrush", "-q", image.BeforePath, image.AfterPath)
+		cmd = exec.Command("pngquant", "-f", "--quality", "85", "-o", image.AfterPath, image.BeforePath)
 	default:
 		cmd = exec.Command("cjpeg", "-quality", "85", "-outfile",
 			image.AfterPath, image.BeforePath)
